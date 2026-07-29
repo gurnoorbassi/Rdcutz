@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="RD Cutz is a premium Surrey, BC barber brand specializing in precision fades, line ups, beard grooming, charcoal masque, and hot steam treatments." />
+  <title>RD Cutz | Premium Barber in Surrey, BC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="is-loading" data-page="home">
+  <div class="intro-loader" id="introLoader" role="status" aria-label="Loading RD Cutz website">
+    <div class="intro-inner">
+      <img class="intro-mark" src="rdcutz-logo.png" alt="" aria-hidden="true" />
+      <p class="intro-name">RD Cutz</p>
+      <span class="intro-line" aria-hidden="true"></span>
+      <p class="intro-sub">Surrey, British Columbia</p>
+    </div>
+  </div>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+  <header class="site-nav" id="siteNav">
+    <div class="container nav-inner">
+      <a class="brand-link" href="index.html" aria-label="RD Cutz home"><img src="rdcutz-logo.png" alt="RD Cutz Logo" /><span class="brand-text">RD CUTZ</span></a>
+      <nav class="desktop-links" aria-label="Primary navigation">
+        <a href="services.html">Services</a><a href="about.html">About</a><a href="gallery.html">Work</a><a href="reviews.html">Reviews</a><a class="button" href="contact.html">Book</a>
+      </nav>
+      <button class="hamburger" id="menuToggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu"><span class="hamburger-lines" aria-hidden="true"></span></button>
+    </div>
+  </header>
+  <div class="mobile-menu" id="mobileMenu"><nav aria-label="Mobile navigation"><a href="services.html">Services</a><a href="about.html">About</a><a href="gallery.html">Work</a><a href="reviews.html">Reviews</a><a href="contact.html">Book</a></nav></div>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="home-hero" aria-label="RD Cutz introduction">
+      <video class="hero-video" autoplay muted loop playsinline aria-hidden="true"><source src="barber-video.mp4" type="video/mp4" /></video>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice"><rect width="1600" height="1000" fill="#080808" /><path d="M0 740 C260 610 420 620 650 500 C910 363 1110 248 1600 312" fill="none" stroke="#C4A245" stroke-opacity=".18" /><path d="M0 780 C270 650 520 655 780 520 C1010 400 1220 360 1600 430" fill="none" stroke="#C4A245" stroke-opacity=".1" /><circle cx="1168" cy="500" r="260" fill="none" stroke="#C4A245" stroke-opacity=".08" /></svg>
+      </div>
+      <div class="hero-content">
+        <img class="hero-logo reveal" src="rdcutz-logo.png" alt="RD Cutz Logo" />
+        <div class="rule center-rule reveal d1" aria-hidden="true"></div>
+        <p class="hero-kicker reveal d1">Surrey, British Columbia - Est. 2020</p>
+        <h1 class="reveal d2">Precision.<br /><em>Craft.</em></h1>
+        <p class="hero-sub reveal d3">Fades &middot; Line Ups &middot; Beard &middot; Grooming</p>
+        <div class="hero-actions reveal d4"><a class="button" href="contact.html">Book Appointment</a><a class="button" href="services.html">Our Services</a></div>
+      </div>
+    </section>
+
+    <!-- Ticker -->
+    <section class="ticker" aria-label="RD Cutz service ticker"><div class="ticker-track" aria-hidden="true"><span>Precision Fades &#9670; Beard Sculpting &#9670; Surrey, BC &#9670; Charcoal Masque &#9670; Hot Steam &#9670; Clean Every Time &#9670; RD Cutz &#9670;</span><span>Precision Fades &#9670; Beard Sculpting &#9670; Surrey, BC &#9670; Charcoal Masque &#9670; Hot Steam &#9670; Clean Every Time &#9670; RD Cutz &#9670;</span></div></section>
+
+    <!-- Stats -->
+    <section class="stats" aria-label="RD Cutz quick facts"><div class="container stats-grid"><div class="stat reveal"><div><strong>5&#9733;</strong><span>Rated Across All Platforms</span></div></div><div class="stat reveal d1"><div><strong>$30</strong><span>Starting Price</span></div></div><div class="stat reveal d2"><div><strong>4</strong><span>Premium Services</span></div></div></div></section>
+
+    <!-- Work Preview -->
+    <section class="section home-work" id="work">
+      <div class="container">
+        <div class="split-head">
+          <div>
+            <p class="eyebrow reveal">Work</p>
+            <h2 class="reveal d1">Choose the album. See the cut.</h2>
+          </div>
+          <p class="reveal d2">A quick look through recent chair work. Switch between fades, beard detail, and process shots, then open the full archive when you want to see everything.</p>
+        </div>
+        <div class="album-tabs reveal d2" role="tablist" aria-label="Home work albums">
+          <button class="album-tab active" type="button" data-filter="all" aria-pressed="true">All</button>
+          <button class="album-tab" type="button" data-filter="fades" aria-pressed="false">Fades</button>
+          <button class="album-tab" type="button" data-filter="beard" aria-pressed="false">Beard</button>
+          <button class="album-tab" type="button" data-filter="process" aria-pressed="false">Process</button>
+        </div>
+        <div class="work-strip" data-album-gallery>
+          <a class="work-card focus-low reveal" href="gallery.html?album=fades" data-albums="fades process">
+            <img src="assets/rdcutz-work-low-fade.jpg" alt="Low fade haircut by RD Cutz" loading="lazy" />
+            <span>Low Fade</span>
+          </a>
+          <a class="work-card reveal d1" href="gallery.html?album=tapers" data-albums="fades tapers">
+            <img src="assets/rdcutz-work-neck-taper.jpg" alt="Neck taper haircut by RD Cutz" loading="lazy" />
+            <span>Neck Taper</span>
+          </a>
+          <a class="work-card reveal d2" href="gallery.html?album=beard" data-albums="beard fades">
+            <img src="assets/rdcutz-work-beard-side.jpg" alt="Side profile beard and fade work by RD Cutz" loading="lazy" />
+            <span>Beard Blend</span>
+          </a>
+          <a class="work-card reveal d3" href="gallery.html?album=fades" data-albums="fades">
+            <img src="assets/rdcutz-work-clean-fade.jpg" alt="Clean fade finish by RD Cutz" loading="lazy" />
+            <span>Clean Fade</span>
+          </a>
+        </div>
+        <div class="work-footer reveal d3">
+          <a class="button" href="gallery.html">Open Full Gallery</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Barber Identity -->
+    <section class="section">
+      <div class="container identity-feature">
+        <div class="identity-copy">
+          <p class="eyebrow reveal">Barber Identity</p>
+          <h2 class="reveal d1">Real cuts, real chair energy.</h2>
+          <p class="lede reveal d2">RD Cutz is built around clean fades, sharp line work, and an appointment that feels relaxed but dialed in. Every cut starts with the shape you want, then gets refined through the small details that make it look fresh in person.</p>
+          <div class="hero-actions actions-left reveal d3"><a class="button" href="about.html">Read the Story</a><a class="button" href="gallery.html">View Work</a></div>
+        </div>
+        <figure class="identity-photo reveal d2">
+          <img src="barber-identity.png" alt="RD Cutz barber cutting a client's fade" />
+          <figcaption class="photo-caption">In the chair / Surrey BC</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="gold-bar" aria-label="Call RD Cutz"><div class="container"><p>Ready for a fresh cut?</p><a href="tel:2369895770">Call Now &rarr; (236) 989-5770</a></div></section>
+  </main>
+
+  <footer class="site-footer"><div class="container"><img class="footer-logo" src="rdcutz-logo.png" alt="RD Cutz Logo" /><div class="rule center-rule" aria-hidden="true"></div><nav class="footer-links" aria-label="Footer navigation"><a href="services.html">Services</a><a href="about.html">About</a><a href="gallery.html">Work</a><a href="reviews.html">Reviews</a><a href="contact.html">Book</a></nav><p class="copyright">&copy; 2025 RD Cutz &middot; Surrey, BC &middot; All rights reserved.</p><p class="designer-credit">Designed by AG Digitalz</p></div></footer>
+  <button class="back-top" id="backTop" type="button" aria-label="Back to top"><svg width="17" height="17" viewBox="0 0 17 17" aria-hidden="true"><path d="M8.5 3.25 3.75 8m4.75-4.75L13.25 8M8.5 3.25v10.5" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="square" stroke-linejoin="miter" /></svg></button>
+  <script src="site.js"></script>
+</body>
+</html>
+
