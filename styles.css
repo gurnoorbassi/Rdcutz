@@ -2004,18 +2004,31 @@ body.booking-open {
   border-top: .5px solid var(--rule);
 }
 
-.booking-service-list a {
+.booking-service-list a,
+.booking-service-list button {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 90px 70px;
   gap: 20px;
   align-items: center;
+  width: 100%;
   min-height: 70px;
+  padding: 0;
   border-bottom: .5px solid var(--rule);
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
   transition: padding .3s var(--ease), background .3s ease;
 }
 
 .booking-service-list a:hover,
-.booking-service-list a:focus-visible {
+.booking-service-list a:focus-visible,
+.booking-service-list button:hover,
+.booking-service-list button:focus-visible {
   padding-inline: 14px;
   background: rgba(196, 162, 69, .055);
 }
@@ -2230,6 +2243,155 @@ body.booking-open {
   line-height: 1;
 }
 
+/* Working TheCut handoff: TheCut blocks third-party iframes. */
+.booking-handoff {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, .85fr);
+  overflow: hidden;
+  border: 1px solid rgba(17, 17, 17, .16);
+  border-radius: 18px;
+  background: #f8f7f3;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, .13);
+}
+
+.booking-handoff-copy {
+  padding: clamp(32px, 5vw, 64px);
+}
+
+.booking-handoff-copy ol {
+  margin-top: 24px;
+  list-style: none;
+}
+
+.booking-handoff-copy li {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+  padding: 22px 0;
+  border-top: 1px solid rgba(17, 17, 17, .12);
+}
+
+.booking-handoff-copy li > span {
+  color: #9b7c21;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 22px;
+}
+
+.booking-handoff-copy strong,
+.booking-handoff-copy small {
+  display: block;
+}
+
+.booking-handoff-copy strong {
+  margin-bottom: 5px;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.booking-handoff-copy small {
+  color: rgba(17, 17, 17, .58);
+}
+
+.booking-handoff-action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: clamp(38px, 6vw, 72px);
+  background: #090909;
+  color: #f4f1ea;
+  text-align: center;
+}
+
+.booking-handoff-action img {
+  width: 116px;
+  height: 116px;
+  object-fit: contain;
+}
+
+.booking-handoff-action p {
+  color: rgba(244, 241, 234, .64);
+}
+
+.booking-handoff-action .button {
+  width: 100%;
+  justify-content: center;
+}
+
+.booking-modal-action {
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 28px;
+  padding: clamp(34px, 7vw, 86px);
+  background:
+    radial-gradient(circle at 80% 5%, rgba(196, 162, 69, .18), transparent 34%),
+    #111;
+  color: #f4f1ea;
+}
+
+.booking-modal-mark {
+  width: 94px;
+  height: 94px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(196, 162, 69, .3);
+  border-radius: 50%;
+}
+
+.booking-modal-mark img {
+  width: 76px;
+  height: 76px;
+  object-fit: contain;
+}
+
+.booking-modal-action h3 {
+  margin: 8px 0 14px;
+  color: var(--gold-hi);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(34px, 5vw, 58px);
+  font-weight: 400;
+}
+
+.booking-modal-action p {
+  max-width: 560px;
+  color: rgba(244, 241, 234, .68);
+}
+
+.booking-modal-action .button {
+  width: min(100%, 410px);
+  justify-content: center;
+}
+
+.booking-modal-action > small {
+  max-width: 510px;
+  color: rgba(244, 241, 234, .5);
+  line-height: 1.7;
+}
+
+@media (max-width: 720px) {
+  .booking-handoff {
+    grid-template-columns: 1fr;
+  }
+
+  .booking-handoff-copy,
+  .booking-handoff-action {
+    padding: 30px 22px;
+  }
+
+  .booking-modal-action {
+    padding: 34px 20px;
+  }
+
+  .booking-modal-action h3 {
+    font-size: 36px;
+  }
+}
+
 .booking-modal-frame-wrap {
   position: relative;
   min-height: 0;
@@ -2390,7 +2552,8 @@ body.booking-open {
     gap: 12px;
   }
 
-  .booking-service-list a {
+  .booking-service-list a,
+  .booking-service-list button {
     grid-template-columns: minmax(0, 1fr) 64px;
   }
 

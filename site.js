@@ -131,7 +131,7 @@ document.querySelectorAll(".album-tabs").forEach((tabs) => {
 });
 
 /* =========================================================
-   Embedded TheCut booking
+   TheCut booking handoff
    ========================================================= */
 const bookingTriggers = Array.from(document.querySelectorAll("[data-booking]"));
 let lastBookingTrigger = null;
@@ -143,15 +143,21 @@ if (bookingTriggers.length) {
       <section class="booking-modal-panel" role="dialog" aria-modal="true" aria-labelledby="bookingModalTitle">
         <header class="booking-modal-head">
           <div>
-            <p class="eyebrow">Live booking / TheCut</p>
+            <p class="eyebrow">Secure booking / TheCut</p>
             <h2 id="bookingModalTitle">Book <em>RD Cutz.</em></h2>
-            <p class="booking-selection" data-booking-selection>Choose a service and available time below.</p>
+            <p class="booking-selection" data-booking-selection>Choose your service, then continue to live availability.</p>
           </div>
           <button class="booking-modal-close" type="button" data-booking-close aria-label="Close booking"><span aria-hidden="true">&times;</span></button>
         </header>
-        <div class="booking-modal-frame-wrap">
-          <div class="booking-frame-loading" aria-hidden="true"><span></span><p>Loading live availability…</p></div>
-          <iframe class="booking-modal-frame" title="Book RD Cutz through TheCut" data-booking-frame loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        <div class="booking-modal-action">
+          <div class="booking-modal-mark"><img src="rdcutz-logo.png" alt="" aria-hidden="true" /></div>
+          <div>
+            <p class="eyebrow">Your selection</p>
+            <h3 data-booking-service>Choose a service on TheCut</h3>
+            <p>TheCut does not allow its checkout to run inside other websites. The secure booking page will open in a new tab, while RD Cutz stays open here.</p>
+          </div>
+          <a class="button booking-continue" href="https://app.thecut.co/barbers/RDCUTZ" target="_blank" rel="noopener noreferrer">Continue to live booking <span aria-hidden="true">↗</span></a>
+          <small>On TheCut, tap “Continue Booking On Web,” choose the matching service, then select an available time.</small>
         </div>
       </section>
     </div>
@@ -159,20 +165,21 @@ if (bookingTriggers.length) {
 }
 
 const bookingModal = document.getElementById("bookingModal");
-const bookingFrame = bookingModal?.querySelector("[data-booking-frame]");
 const bookingSelection = bookingModal?.querySelector("[data-booking-selection]");
+const bookingService = bookingModal?.querySelector("[data-booking-service]");
 const bookingClose = bookingModal?.querySelector(".booking-modal-close");
+const bookingContinue = bookingModal?.querySelector(".booking-continue");
 
 function openBooking(trigger) {
-  if (!bookingModal || !bookingFrame) return;
+  if (!bookingModal) return;
   lastBookingTrigger = trigger;
   const service = trigger?.dataset.service;
   if (bookingSelection) {
     bookingSelection.textContent = service
-      ? `${service} selected — choose the matching service and an open time below.`
-      : "Choose a service and available time below.";
+      ? `${service} selected — continue to see live dates and times.`
+      : "Continue to TheCut to choose a service and available time.";
   }
-  if (!bookingFrame.src) bookingFrame.src = "https://app.thecut.co/barbers/RDCUTZ";
+  if (bookingService) bookingService.textContent = service || "Choose a service on TheCut";
   bookingModal.classList.add("open");
   bookingModal.setAttribute("aria-hidden", "false");
   document.body.classList.add("booking-open");
@@ -195,6 +202,7 @@ bookingTriggers.forEach((trigger) => {
 });
 
 bookingModal?.querySelectorAll("[data-booking-close]").forEach((button) => button.addEventListener("click", closeBooking));
+bookingContinue?.addEventListener("click", () => window.setTimeout(closeBooking, 0));
 
 document.addEventListener("keydown", (event) => {
   if (event.key !== "Escape") return;
