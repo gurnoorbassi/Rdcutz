@@ -9,13 +9,16 @@ const mobileMenu = document.getElementById("mobileMenu");
 const brandImage = document.querySelector(".brand-link img");
 const introLoader = document.getElementById("introLoader");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-const currentPage = (location.pathname.split("/").pop() || "index.html").toLowerCase();
 
-document.querySelectorAll('nav a[href$=".html"]').forEach((link) => {
-  const href = link.getAttribute("href").toLowerCase();
-  if (href === currentPage || (currentPage === "" && href === "index.html")) {
-    link.setAttribute("aria-current", "page");
-  }
+function normalizePath(pathname) {
+  const cleaned = pathname.replace(/index\.html$/i, "").replace(/\.html$/i, "").replace(/\/+$/, "");
+  return cleaned || "/";
+}
+
+const currentPath = normalizePath(window.location.pathname);
+document.querySelectorAll("nav a[href]").forEach((link) => {
+  const linkPath = normalizePath(new URL(link.href, window.location.href).pathname);
+  if (linkPath === currentPath) link.setAttribute("aria-current", "page");
 });
 
 function updateChrome() {
@@ -23,12 +26,13 @@ function updateChrome() {
   const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
   const progressValue = maxScroll > 0 ? scrollTop / maxScroll : 0;
 
-  siteNav.classList.toggle("scrolled", scrollTop > 20);
-  backTop.classList.toggle("visible", scrollTop > 500);
-  progress.style.transform = `scaleX(${progressValue})`;
+  if (siteNav) siteNav.classList.toggle("scrolled", scrollTop > 20);
+  if (backTop) backTop.classList.toggle("visible", scrollTop > 500);
+  if (progress) progress.style.transform = `scaleX(${progressValue})`;
 }
 
 function closeMenu() {
+  if (!mobileMenu || !menuToggle) return;
   mobileMenu.classList.remove("open");
   document.body.classList.remove("menu-open");
   menuToggle.setAttribute("aria-expanded", "false");
@@ -36,26 +40,25 @@ function closeMenu() {
 }
 
 function toggleMenu() {
+  if (!mobileMenu || !menuToggle) return;
   const isOpen = mobileMenu.classList.toggle("open");
   document.body.classList.toggle("menu-open", isOpen);
   menuToggle.setAttribute("aria-expanded", String(isOpen));
   menuToggle.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
 }
 
-menuToggle.addEventListener("click", toggleMenu);
-mobileMenu.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
+if (menuToggle) menuToggle.addEventListener("click", toggleMenu);
+if (mobileMenu) mobileMenu.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
 
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") closeMenu();
-});
-
-backTop.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: reducedMotion ? "auto" : "smooth" });
-});
+if (backTop) {
+  backTop.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: reducedMotion ? "auto" : "smooth" });
+  });
+}
 
 if (brandImage) {
   brandImage.addEventListener("error", () => {
-    brandImage.closest(".brand-link").classList.add("logo-missing");
+    brandImage.closest(".brand-link")?.classList.add("logo-missing");
   });
 }
 
@@ -73,10 +76,8 @@ if (introLoader) {
   if (reducedMotion) {
     hideIntro();
   } else {
-    window.addEventListener("load", () => {
-      window.setTimeout(hideIntro, 900);
-    });
-    window.setTimeout(hideIntro, 1800);
+    window.addEventListener("load", () => window.setTimeout(hideIntro, 520));
+    window.setTimeout(hideIntro, 1200);
   }
 }
 
@@ -88,13 +89,16 @@ if (!reducedMotion && "IntersectionObserver" in window) {
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.16, rootMargin: "0px 0px -8% 0px" });
+  }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
 
   document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
 } else {
   document.querySelectorAll(".reveal").forEach((element) => element.classList.add("visible"));
 }
 
+/* =========================================================
+   Filterable work albums
+   ========================================================= */
 document.querySelectorAll(".album-tabs").forEach((tabs) => {
   const gallery = document.querySelector("[data-album-gallery]");
   if (!gallery) return;
@@ -111,55 +115,89 @@ document.querySelectorAll(".album-tabs").forEach((tabs) => {
 
     cards.forEach((card) => {
       const albums = (card.dataset.albums || "").split(/\s+/);
-      const shouldShow = album === "all" || albums.includes(album);
-      card.classList.toggle("is-hidden", !shouldShow);
+      card.classList.toggle("is-hidden", album !== "all" && !albums.includes(album));
     });
 
     if (updateUrl && document.body.dataset.page === "gallery") {
-      const nextUrl = album === "all" ? "gallery.html" : `gallery.html?album=${encodeURIComponent(album)}`;
+      const nextUrl = album === "all" ? "/gallery" : `/gallery?album=${encodeURIComponent(album)}`;
       window.history.replaceState({}, "", nextUrl);
     }
   }
 
-  buttons.forEach((button) => {
-    button.addEventListener("click", () => setAlbum(button.dataset.filter, true));
-  });
-
+  buttons.forEach((button) => button.addEventListener("click", () => setAlbum(button.dataset.filter, true)));
   const requestedAlbum = new URLSearchParams(window.location.search).get("album");
   const initialAlbum = buttons.some((button) => button.dataset.filter === requestedAlbum) ? requestedAlbum : "all";
   setAlbum(initialAlbum);
 });
 
-const instagramFeed = document.querySelector("[data-instagram-feed]");
-const instagramStatus = document.querySelector("[data-instagram-status]");
-if (instagramFeed) {
-  fetch("/.netlify/functions/instagram-feed", { headers: { Accept: "application/json" } })
-    .then((response) => (response.ok ? response.json() : null))
-    .then((data) => {
-      if (!data || !Array.isArray(data.items) || data.items.length === 0) return;
-      instagramFeed.textContent = "";
-      data.items.slice(0, 8).forEach((item) => {
-        const link = document.createElement("a");
-        link.href = item.permalink || "https://www.instagram.com/rdcutz_/";
-        link.target = "_blank";
-        link.rel = "noreferrer";
+/* =========================================================
+   Embedded TheCut booking
+   ========================================================= */
+const bookingTriggers = Array.from(document.querySelectorAll("[data-booking]"));
+let lastBookingTrigger = null;
 
-        if (item.mediaUrl) {
-          const image = document.createElement("img");
-          image.src = item.mediaUrl;
-          image.alt = item.caption || "RD Cutz Instagram post";
-          image.loading = "lazy";
-          link.append(image);
-        }
-
-        const label = document.createElement("span");
-        label.textContent = item.caption || item.mediaType || "Instagram post";
-        link.append(label);
-        instagramFeed.append(link);
-      });
-      const liveSection = instagramFeed.closest(".live-section");
-      if (liveSection) liveSection.hidden = false;
-      if (instagramStatus) instagramStatus.textContent = "Latest posts loaded automatically from Instagram.";
-    })
-    .catch(() => {});
+if (bookingTriggers.length) {
+  document.body.insertAdjacentHTML("beforeend", `
+    <div class="booking-modal" id="bookingModal" aria-hidden="true">
+      <button class="booking-modal-backdrop" type="button" data-booking-close aria-label="Close booking"></button>
+      <section class="booking-modal-panel" role="dialog" aria-modal="true" aria-labelledby="bookingModalTitle">
+        <header class="booking-modal-head">
+          <div>
+            <p class="eyebrow">Live booking / TheCut</p>
+            <h2 id="bookingModalTitle">Book <em>RD Cutz.</em></h2>
+            <p class="booking-selection" data-booking-selection>Choose a service and available time below.</p>
+          </div>
+          <button class="booking-modal-close" type="button" data-booking-close aria-label="Close booking"><span aria-hidden="true">&times;</span></button>
+        </header>
+        <div class="booking-modal-frame-wrap">
+          <div class="booking-frame-loading" aria-hidden="true"><span></span><p>Loading live availability…</p></div>
+          <iframe class="booking-modal-frame" title="Book RD Cutz through TheCut" data-booking-frame loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+      </section>
+    </div>
+  `);
 }
+
+const bookingModal = document.getElementById("bookingModal");
+const bookingFrame = bookingModal?.querySelector("[data-booking-frame]");
+const bookingSelection = bookingModal?.querySelector("[data-booking-selection]");
+const bookingClose = bookingModal?.querySelector(".booking-modal-close");
+
+function openBooking(trigger) {
+  if (!bookingModal || !bookingFrame) return;
+  lastBookingTrigger = trigger;
+  const service = trigger?.dataset.service;
+  if (bookingSelection) {
+    bookingSelection.textContent = service
+      ? `${service} selected — choose the matching service and an open time below.`
+      : "Choose a service and available time below.";
+  }
+  if (!bookingFrame.src) bookingFrame.src = "https://app.thecut.co/barbers/RDCUTZ";
+  bookingModal.classList.add("open");
+  bookingModal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("booking-open");
+  bookingClose?.focus();
+}
+
+function closeBooking() {
+  if (!bookingModal) return;
+  bookingModal.classList.remove("open");
+  bookingModal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("booking-open");
+  lastBookingTrigger?.focus();
+}
+
+bookingTriggers.forEach((trigger) => {
+  trigger.addEventListener("click", (event) => {
+    event.preventDefault();
+    openBooking(trigger);
+  });
+});
+
+bookingModal?.querySelectorAll("[data-booking-close]").forEach((button) => button.addEventListener("click", closeBooking));
+
+document.addEventListener("keydown", (event) => {
+  if (event.key !== "Escape") return;
+  if (bookingModal?.classList.contains("open")) closeBooking();
+  else closeMenu();
+});

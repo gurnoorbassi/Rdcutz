@@ -1,51 +1,59 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Explore the RD Cutz service menu: fade haircut, beard line up, charcoal face mask, and hot steam treatment in Surrey, BC." />
-  <title>Services | RD Cutz</title>
+  <meta name="description" content="View current RD Cutz haircut, beard, fade, face mask, and steam services with live TheCut booking in Surrey, BC." />
+  <meta name="theme-color" content="#080808" />
+  <link rel="canonical" href="https://rdcutz.netlify.app/services" />
+  <title>Services &amp; Prices | RD Cutz</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body class="is-loading" data-page="services">
-  <div class="intro-loader" id="introLoader" role="status" aria-label="Loading RD Cutz website">
-    <div class="intro-inner">
-      <img class="intro-mark" src="rdcutz-logo.png" alt="" aria-hidden="true" />
-      <p class="intro-name">RD Cutz</p>
-      <span class="intro-line" aria-hidden="true"></span>
-      <p class="intro-sub">Surrey, British Columbia</p>
-    </div>
-  </div>
+  <div class="intro-loader" id="introLoader" role="status" aria-label="Loading RD Cutz website"><div class="intro-inner"><img class="intro-mark" src="rdcutz-logo.png" alt="" aria-hidden="true" /><p class="intro-name">RD Cutz</p><span class="intro-line" aria-hidden="true"></span><p class="intro-sub">Surrey, British Columbia</p></div></div>
   <div class="progress" id="progress" aria-hidden="true"></div>
-  <header class="site-nav solid" id="siteNav"><div class="container nav-inner"><a class="brand-link" href="index.html" aria-label="RD Cutz home"><img src="rdcutz-logo.png" alt="RD Cutz Logo" /><span class="brand-text">RD CUTZ</span></a><nav class="desktop-links" aria-label="Primary navigation"><a href="services.html">Services</a><a href="about.html">About</a><a href="gallery.html">Work</a><a href="reviews.html">Reviews</a><a class="button" href="contact.html">Book</a></nav><button class="hamburger" id="menuToggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu"><span class="hamburger-lines" aria-hidden="true"></span></button></div></header>
-  <div class="mobile-menu" id="mobileMenu"><nav aria-label="Mobile navigation"><a href="services.html">Services</a><a href="about.html">About</a><a href="gallery.html">Work</a><a href="reviews.html">Reviews</a><a href="contact.html">Book</a></nav></div>
+  <header class="site-nav solid" id="siteNav"><div class="container nav-inner"><a class="brand-link" href="/" aria-label="RD Cutz home"><img src="rdcutz-logo.png" alt="RD Cutz Logo" /><span class="brand-text">RD CUTZ</span></a><nav class="desktop-links" aria-label="Primary navigation"><a href="/services">Services</a><a href="/about">About</a><a href="/gallery">Work</a><a class="button" href="/contact">Book</a></nav><button class="hamburger" id="menuToggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu"><span class="hamburger-lines" aria-hidden="true"></span></button></div></header>
+  <div class="mobile-menu" id="mobileMenu"><nav aria-label="Mobile navigation"><a href="/services">Services</a><a href="/about">About</a><a href="/gallery">Work</a><a href="/contact">Book</a></nav></div>
 
   <main id="top">
-    <!-- Page Hero -->
-    <section class="page-hero compact"><div class="container"><p class="page-kicker reveal">Services</p><h1 class="reveal d1">A precise menu. <em>No noise.</em></h1><p class="lede reveal d2">Everything on the RD Cutz menu earns its place: clean fades, beard detail, skin finishers, and steam treatment.</p></div></section>
+    <section class="page-hero visual-page-hero services-hero">
+      <div class="page-hero-media" aria-hidden="true"><img src="assets/instagram-burst-fade.jpg" alt="" /></div>
+      <div class="container page-hero-grid">
+        <div>
+          <p class="page-kicker reveal">Current menu / TheCut</p>
+          <h1 class="reveal d1">Choose the service.<br /><em>Own the finish.</em></h1>
+        </div>
+        <div class="hero-aside reveal d2"><p>Seven live services, clear timing, and no surprises. Pick what fits, then book an available time without leaving RD Cutz.</p><button class="button" type="button" data-booking>See live availability</button></div>
+      </div>
+    </section>
 
-    <!-- Service Menu -->
-    <section class="section">
+    <section class="section service-menu-section" aria-labelledby="menu-heading">
       <div class="container">
-        <div class="service-list">
-          <article class="service-item reveal"><span class="service-number">01</span><div><h3>Fade Haircut</h3><p class="service-copy">Low, mid, or high &mdash; tailored precisely to your style. Balanced shape, clean neck line, and a finish that holds up outside the chair.</p></div><span class="service-meta">60min</span><span class="service-price">$30</span></article>
-          <article class="service-item reveal d1"><span class="service-number">02</span><div><h3>Beard Line Up</h3><p class="service-copy">Crisp edges, clean shape. Your beard, dialed in with measured line work and a natural silhouette.</p></div><span class="service-meta">40min</span><span class="service-price">$20</span></article>
-          <article class="service-item reveal d2"><span class="service-number">03</span><div><h3>Charcoal Face Mask</h3><p class="service-copy">Deep cleanse. Fresh skin. The finishing touch after the cut or line up.</p></div><span class="service-meta">15min</span><span class="service-price">$5</span></article>
-          <article class="service-item reveal d3"><span class="service-number">04</span><div><h3>Hot Steam Treatment</h3><p class="service-copy">Open pores, smooth skin. A calm, refined add-on for next-level results.</p></div><span class="service-meta">30min</span><span class="service-price">$5</span></article>
+        <div class="split-head">
+          <div><p class="eyebrow reveal">The menu</p><h2 id="menu-heading" class="reveal d1">Current cuts.<br /><em>Current prices.</em></h2></div>
+          <p class="reveal d2">Prices and durations match the live RD Cutz profile on TheCut. Every service button opens booking over this page.</p>
+        </div>
+        <div class="service-card-grid">
+          <article class="service-card-premium reveal"><div class="service-card-top"><span>01</span><span>1 hour</span></div><h3>Haircut + Beard</h3><p>Full haircut with a beard fade or precise line-up for one complete finish.</p><div class="service-card-bottom"><strong>$45</strong><button class="service-book" type="button" data-booking data-service="Haircut + Beard">Book this service <span aria-hidden="true">↗</span></button></div></article>
+          <article class="service-card-premium reveal d1"><div class="service-card-top"><span>02</span><span>45 min</span></div><h3>Haircut</h3><p>A full haircut and line-up shaped around your hair, profile, and preferred finish.</p><div class="service-card-bottom"><strong>$35</strong><button class="service-book" type="button" data-booking data-service="Haircut">Book this service <span aria-hidden="true">↗</span></button></div></article>
+          <article class="service-card-premium reveal d2"><div class="service-card-top"><span>03</span><span>15 min</span></div><h3>Beard Lineup</h3><p>A fast, clean beard shape with deliberate edges and a natural silhouette.</p><div class="service-card-bottom"><strong>$20</strong><button class="service-book" type="button" data-booking data-service="Beard Lineup">Book this service <span aria-hidden="true">↗</span></button></div></article>
+          <article class="service-card-premium service-card-photo reveal"><img src="assets/instagram-design-fade.jpg" alt="Designed fade haircut by RD Cutz" loading="lazy" /><div class="service-photo-label"><span>Recent work</span><strong>Design fade</strong></div></article>
+          <article class="service-card-premium reveal"><div class="service-card-top"><span>04</span><span>1 hour</span></div><h3>Fade</h3><p>Low, mid, or high fade with a balanced blend, clean neckline, and sharp finish.</p><div class="service-card-bottom"><strong>$30</strong><button class="service-book" type="button" data-booking data-service="Fade">Book this service <span aria-hidden="true">↗</span></button></div></article>
+          <article class="service-card-premium reveal d1"><div class="service-card-top"><span>05</span><span>40 min</span></div><h3>Beard Line Up</h3><p>The extended beard service for detailed shaping, line work, and refinement.</p><div class="service-card-bottom"><strong>$20</strong><button class="service-book" type="button" data-booking data-service="Beard Line Up">Book this service <span aria-hidden="true">↗</span></button></div></article>
+          <article class="service-card-premium reveal d2"><div class="service-card-top"><span>06</span><span>15 min</span></div><h3>Char Face Mask</h3><p>A charcoal finishing treatment that refreshes the skin after the chair.</p><div class="service-card-bottom"><strong>$5</strong><button class="service-book" type="button" data-booking data-service="Char Face Mask">Book this service <span aria-hidden="true">↗</span></button></div></article>
+          <article class="service-card-premium reveal d3"><div class="service-card-top"><span>07</span><span>30 min</span></div><h3>Steam</h3><p>A calm hot-steam add-on for a smoother, more complete grooming finish.</p><div class="service-card-bottom"><strong>$5</strong><button class="service-book" type="button" data-booking data-service="Steam">Book this service <span aria-hidden="true">↗</span></button></div></article>
         </div>
       </div>
     </section>
 
-    <!-- CTA -->
-    <section class="gold-bar" aria-label="Book RD Cutz"><div class="container"><p>Book any service.</p><a href="contact.html">View booking details &rarr;</a></div></section>
+    <section class="image-cta" aria-label="Book RD Cutz"><img src="assets/instagram-mid-low-process.jpg" alt="RD Cutz shaping a mid-low fade" loading="lazy" /><div class="image-cta-overlay"><p class="eyebrow">The chair is ready</p><h2>Pick a time.<br /><em>Stay sharp.</em></h2><button class="button" type="button" data-booking>Open live booking</button></div></section>
   </main>
 
-  <footer class="site-footer"><div class="container"><img class="footer-logo" src="rdcutz-logo.png" alt="RD Cutz Logo" /><div class="rule center-rule" aria-hidden="true"></div><nav class="footer-links" aria-label="Footer navigation"><a href="services.html">Services</a><a href="about.html">About</a><a href="gallery.html">Work</a><a href="reviews.html">Reviews</a><a href="contact.html">Book</a></nav><p class="copyright">&copy; 2025 RD Cutz &middot; Surrey, BC &middot; All rights reserved.</p><p class="designer-credit">Designed by AG Digitalz</p></div></footer>
+  <footer class="site-footer"><div class="container"><img class="footer-logo" src="rdcutz-logo.png" alt="RD Cutz Logo" /><div class="rule center-rule" aria-hidden="true"></div><nav class="footer-links" aria-label="Footer navigation"><a href="/services">Services</a><a href="/about">About</a><a href="/gallery">Work</a><a href="/contact">Book</a></nav><p class="copyright">RD Cutz &middot; Surrey, BC &middot; Est. 2020</p><p class="designer-credit">Designed by <a href="https://www.instagram.com/agdigitalz/" target="_blank" rel="noreferrer">AG Digitalz</a></p></div></footer>
   <button class="back-top" id="backTop" type="button" aria-label="Back to top"><svg width="17" height="17" viewBox="0 0 17 17" aria-hidden="true"><path d="M8.5 3.25 3.75 8m4.75-4.75L13.25 8M8.5 3.25v10.5" fill="none" stroke="currentColor" stroke-width="1" /></svg></button>
   <script src="site.js"></script>
 </body>
 </html>
-

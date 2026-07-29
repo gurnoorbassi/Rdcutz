@@ -1,84 +1,58 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="View the RD Cutz portfolio of recent fades, beard work, tapers, and textured cuts in Surrey, BC." />
-  <title>Work | RD Cutz</title>
+  <meta name="description" content="Explore real RD Cutz fades, tapers, beard work, custom designs, and in-chair process photos from Surrey, BC." />
+  <meta name="theme-color" content="#080808" />
+  <link rel="canonical" href="https://rdcutz.netlify.app/gallery" />
+  <title>Recent Work | RD Cutz</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body class="is-loading" data-page="gallery">
-  <div class="intro-loader" id="introLoader" role="status" aria-label="Loading RD Cutz website">
-    <div class="intro-inner">
-      <img class="intro-mark" src="rdcutz-logo.png" alt="" aria-hidden="true" />
-      <p class="intro-name">RD Cutz</p>
-      <span class="intro-line" aria-hidden="true"></span>
-      <p class="intro-sub">Surrey, British Columbia</p>
-    </div>
-  </div>
+  <div class="intro-loader" id="introLoader" role="status" aria-label="Loading RD Cutz website"><div class="intro-inner"><img class="intro-mark" src="rdcutz-logo.png" alt="" aria-hidden="true" /><p class="intro-name">RD Cutz</p><span class="intro-line" aria-hidden="true"></span><p class="intro-sub">Surrey, British Columbia</p></div></div>
   <div class="progress" id="progress" aria-hidden="true"></div>
-  <header class="site-nav solid" id="siteNav"><div class="container nav-inner"><a class="brand-link" href="index.html" aria-label="RD Cutz home"><img src="rdcutz-logo.png" alt="RD Cutz Logo" /><span class="brand-text">RD CUTZ</span></a><nav class="desktop-links" aria-label="Primary navigation"><a href="services.html">Services</a><a href="about.html">About</a><a href="gallery.html">Work</a><a href="reviews.html">Reviews</a><a class="button" href="contact.html">Book</a></nav><button class="hamburger" id="menuToggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu"><span class="hamburger-lines" aria-hidden="true"></span></button></div></header>
-  <div class="mobile-menu" id="mobileMenu"><nav aria-label="Mobile navigation"><a href="services.html">Services</a><a href="about.html">About</a><a href="gallery.html">Work</a><a href="reviews.html">Reviews</a><a href="contact.html">Book</a></nav></div>
+  <header class="site-nav solid" id="siteNav"><div class="container nav-inner"><a class="brand-link" href="/" aria-label="RD Cutz home"><img src="rdcutz-logo.png" alt="RD Cutz Logo" /><span class="brand-text">RD CUTZ</span></a><nav class="desktop-links" aria-label="Primary navigation"><a href="/services">Services</a><a href="/about">About</a><a href="/gallery">Work</a><a class="button" href="/contact">Book</a></nav><button class="hamburger" id="menuToggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu"><span class="hamburger-lines" aria-hidden="true"></span></button></div></header>
+  <div class="mobile-menu" id="mobileMenu"><nav aria-label="Mobile navigation"><a href="/services">Services</a><a href="/about">About</a><a href="/gallery">Work</a><a href="/contact">Book</a></nav></div>
 
   <main id="top">
-    <!-- Page Hero -->
-    <section class="page-hero compact work-hero"><div class="container"><p class="page-kicker reveal">Work Archive</p><h1 class="reveal d1">Albums from <em>the chair.</em></h1><p class="lede reveal d2">Recent cuts organized by style. Choose an album or scroll through the full set.</p></div></section>
+    <section class="page-hero visual-page-hero gallery-hero">
+      <div class="page-hero-media" aria-hidden="true"><img src="assets/instagram-brand-detail.jpg" alt="" /></div>
+      <div class="container page-hero-grid">
+        <div><p class="page-kicker reveal">Real work / @rdcutz_</p><h1 class="reveal d1">Proof is in<br /><em>the profile.</em></h1></div>
+        <div class="hero-aside reveal d2"><p>Fresh cuts pulled from the chair and the RD Cutz Instagram archive. Filter the work or open Instagram for the latest drops.</p><a class="button" href="https://www.instagram.com/rdcutz_/" target="_blank" rel="noreferrer">Follow @rdcutz_</a></div>
+      </div>
+    </section>
 
-    <!-- Album Controls -->
     <section class="album-section">
-      <div class="container">
-        <div class="album-tabs reveal" role="tablist" aria-label="Gallery albums">
-          <button class="album-tab active" type="button" data-filter="all" aria-pressed="true">All Work</button>
-          <button class="album-tab" type="button" data-filter="fades" aria-pressed="false">Fades</button>
-          <button class="album-tab" type="button" data-filter="tapers" aria-pressed="false">Tapers</button>
-          <button class="album-tab" type="button" data-filter="beard" aria-pressed="false">Beard</button>
-          <button class="album-tab" type="button" data-filter="process" aria-pressed="false">Process</button>
-        </div>
-      </div>
+      <div class="container"><div class="album-tabs reveal" role="tablist" aria-label="Gallery albums"><button class="album-tab active" type="button" data-filter="all" aria-pressed="true">All work</button><button class="album-tab" type="button" data-filter="fades" aria-pressed="false">Fades</button><button class="album-tab" type="button" data-filter="tapers" aria-pressed="false">Tapers</button><button class="album-tab" type="button" data-filter="beard" aria-pressed="false">Beard</button><button class="album-tab" type="button" data-filter="process" aria-pressed="false">Process</button><button class="album-tab" type="button" data-filter="design" aria-pressed="false">Design</button></div></div>
     </section>
 
-    <!-- Gallery Grid -->
     <section class="section gallery-section">
-      <div class="container gallery-grid" data-album-gallery>
-        <figure class="gallery-panel focus-low reveal" data-albums="fades process"><img src="assets/rdcutz-work-low-fade.jpg" alt="Low fade haircut by RD Cutz" loading="eager" /><figcaption class="gallery-label">Low Fade / Mirror View</figcaption></figure>
-        <figure class="gallery-panel focus-neck reveal d1" data-albums="tapers fades"><img src="assets/rdcutz-work-neck-taper.jpg" alt="Neck taper haircut by RD Cutz" loading="lazy" /><figcaption class="gallery-label">Neck Taper</figcaption></figure>
-        <figure class="gallery-panel focus-beard reveal d2" data-albums="beard fades"><img src="assets/rdcutz-work-beard-side.jpg" alt="Beard and side profile haircut by RD Cutz" loading="lazy" /><figcaption class="gallery-label">Beard Blend</figcaption></figure>
-        <figure class="gallery-panel focus-profile reveal d3" data-albums="process tapers"><img src="assets/rdcutz-work-fade-profile.jpg" alt="Side profile haircut detail by RD Cutz" loading="lazy" /><figcaption class="gallery-label">Profile Detail</figcaption></figure>
-        <figure class="gallery-panel focus-clean reveal d4" data-albums="fades"><img src="assets/rdcutz-work-clean-fade.jpg" alt="Clean fade finish by RD Cutz" loading="lazy" /><figcaption class="gallery-label">Clean Fade Finish</figcaption></figure>
+      <div class="container editorial-gallery" data-album-gallery>
+        <figure class="gallery-piece gallery-piece-wide reveal" data-albums="fades process"><img src="assets/rdcutz-work-low-fade.jpg" alt="Low fade haircut by RD Cutz" loading="eager" /><figcaption><span>01</span><strong>Low fade / Mirror view</strong></figcaption></figure>
+        <figure class="gallery-piece gallery-piece-tall reveal d1" data-albums="design fades"><img src="assets/instagram-design-fade.jpg" alt="Custom shaved design and fade by RD Cutz" loading="lazy" /><figcaption><span>02</span><strong>Custom design fade</strong></figcaption></figure>
+        <figure class="gallery-piece reveal d2" data-albums="tapers fades"><img src="assets/rdcutz-work-neck-taper.jpg" alt="Neck taper haircut by RD Cutz" loading="lazy" /><figcaption><span>03</span><strong>Neck taper</strong></figcaption></figure>
+        <figure class="gallery-piece reveal" data-albums="beard fades"><img src="assets/rdcutz-work-beard-side.jpg" alt="Beard and side profile haircut by RD Cutz" loading="lazy" /><figcaption><span>04</span><strong>Beard blend</strong></figcaption></figure>
+        <figure class="gallery-piece gallery-piece-wide reveal d1" data-albums="fades tapers"><img src="assets/instagram-burst-fade.jpg" alt="Burst fade haircut by RD Cutz" loading="lazy" /><figcaption><span>05</span><strong>Burst fade</strong></figcaption></figure>
+        <figure class="gallery-piece gallery-piece-tall reveal d2" data-albums="process fades"><img src="assets/instagram-mid-low-process.jpg" alt="RD Cutz shaping a mid-low fade" loading="lazy" /><figcaption><span>06</span><strong>Mid-low / In process</strong></figcaption></figure>
+        <figure class="gallery-piece reveal" data-albums="process tapers"><img src="assets/rdcutz-work-fade-profile.jpg" alt="Side profile haircut detail by RD Cutz" loading="lazy" /><figcaption><span>07</span><strong>Profile detail</strong></figcaption></figure>
+        <figure class="gallery-piece gallery-piece-wide reveal d1" data-albums="tapers fades"><img src="assets/instagram-clean-taper.jpg" alt="Clean taper fade by RD Cutz" loading="lazy" /><figcaption><span>08</span><strong>Clean taper finish</strong></figcaption></figure>
+        <figure class="gallery-piece reveal d2" data-albums="fades"><img src="assets/rdcutz-work-clean-fade.jpg" alt="Clean fade finish by RD Cutz" loading="lazy" /><figcaption><span>09</span><strong>Clean fade</strong></figcaption></figure>
+        <figure class="gallery-piece reveal d3" data-albums="fades tapers"><img src="assets/rdcutz-work-fade-profile.jpg" alt="Fresh side profile fade by RD Cutz" loading="lazy" /><figcaption><span>10</span><strong>Side profile</strong></figcaption></figure>
       </div>
     </section>
 
-    <!-- Social Links -->
-    <section class="social-strip" aria-label="RD Cutz social profiles">
-      <div class="container social-strip-inner">
-        <p>To view more, click here.</p>
-        <div class="social-actions">
-          <a class="button" href="https://www.instagram.com/rdcutz_/" target="_blank" rel="noreferrer">Instagram</a>
-          <a class="button" href="https://www.tiktok.com/@rdcutz1" target="_blank" rel="noreferrer">TikTok</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Instagram Feed Hook -->
-    <section class="section live-section" aria-labelledby="live-heading">
-      <div class="container live-panel">
-        <div>
-          <p class="eyebrow reveal">Live Work</p>
-          <h2 id="live-heading" class="reveal d1">Latest from Instagram.</h2>
-        </div>
-        <p class="reveal d2">Once Instagram is connected, new posts and stories from @rdcutz_ will load here automatically. No manual gallery updates needed.</p>
-        <p class="feed-status" data-instagram-status>Instagram auto-feed is ready to connect.</p>
-        <div class="instagram-feed" data-instagram-feed aria-live="polite"></div>
-      </div>
+    <section class="social-editorial">
+      <div class="container social-editorial-grid"><div><p class="eyebrow">More from the chair</p><h2>New work lands<br /><em>on Instagram.</em></h2></div><div><p>See reels, full transformations, and the newest cuts directly from @rdcutz_.</p><div class="social-actions"><a class="button" href="https://www.instagram.com/rdcutz_/" target="_blank" rel="noreferrer">Instagram</a><a class="button" href="https://www.tiktok.com/@rdcutz_" target="_blank" rel="noreferrer">TikTok</a><button class="button" type="button" data-booking>Book a cut</button></div></div></div>
     </section>
   </main>
 
-  <footer class="site-footer"><div class="container"><img class="footer-logo" src="rdcutz-logo.png" alt="RD Cutz Logo" /><div class="rule center-rule" aria-hidden="true"></div><nav class="footer-links" aria-label="Footer navigation"><a href="services.html">Services</a><a href="about.html">About</a><a href="gallery.html">Work</a><a href="reviews.html">Reviews</a><a href="contact.html">Book</a></nav><p class="copyright">&copy; 2025 RD Cutz &middot; Surrey, BC &middot; All rights reserved.</p><p class="designer-credit">Designed by AG Digitalz</p></div></footer>
+  <footer class="site-footer"><div class="container"><img class="footer-logo" src="rdcutz-logo.png" alt="RD Cutz Logo" /><div class="rule center-rule" aria-hidden="true"></div><nav class="footer-links" aria-label="Footer navigation"><a href="/services">Services</a><a href="/about">About</a><a href="/gallery">Work</a><a href="/contact">Book</a></nav><p class="copyright">RD Cutz &middot; Surrey, BC &middot; Est. 2020</p><p class="designer-credit">Designed by <a href="https://www.instagram.com/agdigitalz/" target="_blank" rel="noreferrer">AG Digitalz</a></p></div></footer>
   <button class="back-top" id="backTop" type="button" aria-label="Back to top"><svg width="17" height="17" viewBox="0 0 17 17" aria-hidden="true"><path d="M8.5 3.25 3.75 8m4.75-4.75L13.25 8M8.5 3.25v10.5" fill="none" stroke="currentColor" stroke-width="1" /></svg></button>
   <script src="site.js"></script>
 </body>
 </html>
-
